@@ -4,9 +4,21 @@ const toDoForm = document.querySelector('.js-toDoForm'),
 
  const TODOS_LS = 'toDos';
 
- const toDos = [];
+ let toDos = [];
 
- function saveToDOs(){
+function deleteToDo(event){//.target 함수사용
+  const btn = event.target;
+  const li = btn.parentNode;
+  toDoList.removeChild(li);
+
+  const cleanToDos = toDos.filter( 
+    toDo => toDo.id !== parseInt(li.id) );
+  console.log(cleanToDos);
+  toDos = cleanToDos;
+  saveToDos();
+}
+
+ function saveToDos(){
    localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
  }
 
@@ -15,6 +27,7 @@ const toDoForm = document.querySelector('.js-toDoForm'),
   const delBtn = document.createElement('button');
   // delBtn.value = 'x';// todo 버튼값 수정
   delBtn.innerText = 'X';// todo 버튼값 수정
+  delBtn.addEventListener('click', deleteToDo);
   const span = document.createElement('span');
   const newId = toDos.length +1;
 
@@ -29,7 +42,7 @@ const toDoForm = document.querySelector('.js-toDoForm'),
     id : newId
   };
   toDos.push(toDoObj);
-  saveToDOs();
+  saveToDos();
 
 }
 
@@ -61,3 +74,7 @@ const toDoForm = document.querySelector('.js-toDoForm'),
  }
 
  init();
+
+
+
+ //filter, forEach
