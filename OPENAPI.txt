@@ -1,0 +1,2 @@
+https://openweathermap.org/stations
+API KEY = d77384279d021b0c5d0b3253f8bc6434

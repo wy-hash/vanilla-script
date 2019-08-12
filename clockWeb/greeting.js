@@ -16,12 +16,12 @@ function handleSubmit(event){
   const currentValue = input.value;
   log(currentValue);
   saveName(currentValue);
+  // 새로고침
+  location.reload();
 }
 
 function askForName(){
   form.classList.add(SHOWING_CN);
-  
-  log("실행되나?");
   form.addEventListener("submit", handleSubmit);
 }
 
