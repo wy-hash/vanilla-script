@@ -33,9 +33,6 @@ function handleGeoSucces(position){
 function handleGeoError(){
   console.log('NO Weather');
 }
-// 아니 뭐 설명을해주면서 
-// 그건 나도 다 까먹었으니까 이러고있는데 자랑이냐고요..
-// #{} ;; 
 
 function askForCoords(){
   //현재 좌표값
